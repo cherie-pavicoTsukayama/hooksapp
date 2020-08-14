@@ -6,7 +6,6 @@ export const NewSongForm = ({ addSong }) => {
     e.preventDefault();
     addSong(title);
     setTitle('');
-    console.log(title);
   }
   return(
     <form onSubmit={handleSubmit}>
