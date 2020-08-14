@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export const SongList = () => {
   const [songs, setSongs] = useState([
@@ -7,7 +8,7 @@ export const SongList = () => {
     { title: 'This Wild Darkness', id: 3 }
   ])
   const addSong = () => {
-    setSongs([...songs, {title: 'new song', id: 4}], )
+    setSongs([...songs, {title: 'new song', id: uuidv4()}], )
   }
   return(
     <div className="song-list">
