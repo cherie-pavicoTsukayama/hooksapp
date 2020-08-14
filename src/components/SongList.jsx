@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-//npm installed uuid to use the function uuidv4() to generate a random key. 
+//npm installed uuid to use the function uuidv4() to generate a random key.
 import { v4 as uuidv4 } from 'uuid';
+import { NewSongForm } from './NewSongForm';
 
 export const SongList = () => {
   //useState returns the initial state. Destructuring the return value. Songs = the song array
@@ -10,11 +11,11 @@ export const SongList = () => {
     { title: 'Memory Gospel', id: 2 },
     { title: 'This Wild Darkness', id: 3 }
   ])
-  const addSong = () => {
+  const addSong = (title) => {
     //setSongs is like set state, it comepletely replaces the songs state.
     //juse the spread operator to copy the array and separate it with a comma to
     //add the new object to the array
-    setSongs([...songs, {title: 'new song', id: uuidv4()}], )
+    setSongs([...songs, {title: title, id: uuidv4()}], )
   }
   return(
     <div className="song-list">
@@ -25,7 +26,7 @@ export const SongList = () => {
           );
         })}
       </ul>
-      <button onClick={ addSong }>Add a song</button>
+      <NewSongForm addSong={addSong} test="wow"/>
     </div>
 
   )
